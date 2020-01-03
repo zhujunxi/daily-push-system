@@ -1,21 +1,12 @@
 const cheerio = require("cheerio")
 const getContent = require("./js/getContent")
-
-const mockData = require("./mock.js")
+const sendMail = require("./js/sendMail")
 
 getContent().then(function (res) {
-    // console.log(mockData);
-
-    let $ = cheerio.load(mockData);
-    // console.log(res);
-
-    let selectItem = $(".lake-list-node");
-    console.log($(selectItem).text());
+    // let $ = cheerio.load(res);
+    // let selectItem = $(".lake-list-node")
     // let demo = $(selectItem[1]).find("td")
-    // console.log(demo.length);
+    // console.log($(demo[0]).find("p").text())
 
-    // console.log($(demo[0]).find("p").text());
-
-
-    // console.log(selectItem.root().html());
+    sendMail(res)
 })
